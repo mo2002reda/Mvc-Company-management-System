@@ -1,0 +1,34 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Delete @Model.FName @Model.LName From Application</h1>
+<body>
+    <form asp-action="Delete">
+    <div class="form-group">
+        <label asp-for="Id" class="form-label">Id</label>
+        <input readonly class="form-control" asp-for="Id">
+    </div>
+    <div class="form-group">
+        <label asp-for="FName" class="form-label"> Name</label>
+        <input readonly class="form-control" asp-for="FName">
+    </div>
+    <div class="form-group">
+        <label asp-for="LName" class="form-label">Last Name</label>
+        <input readonly class="form-control" asp-for="LName">
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input readonly class="form-control" asp-for="Email">
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+        <input readonly class="form-control" asp-for="PhoneNumber">
+    </div>
+
+    <input type="submit" value="Delete" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"/> |
+    <a asp-action="Index" class="btn btn-light">Cancle</a>
+    </form>
+</body>
+

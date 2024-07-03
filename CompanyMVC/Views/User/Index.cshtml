@@ -1,0 +1,60 @@
+﻿@model IEnumerable<UserViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if(Model.Count() >0){
+    
+    <div class="m-2">
+        <form asp-action="Index" class="row offset-2 ">
+            <div class="col-8">
+                <input class="form-control" type="text" name="SearchValue" placeholder="User's Name"></input>
+            </div>
+
+            <div class="col-4">
+                <input type="submit" class="btn btn-info" value="Search" />
+            </div>
+        </form>
+    </div>
+    <br />
+    <br />
+    <form >
+<table class="table  table-hover">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(U=>U.Id)</td>
+            <td>Name</td>
+            <td>@Html.DisplayNameFor(U => U.Email)</td>
+            <td>@Html.DisplayNameFor(U => U.PhoneNumber)</td>
+            <td>@Html.DisplayNameFor(U => U.Roles)</td>
+            <td> </td>
+            <td>Edit</td>
+            <td>Details</td>
+            <td>Delete</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+       
+        @foreach(var item in Model)
+        {
+            <tr>
+                    <td>@item.Id</td>
+                    <td>@item.FName @item.LName</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@string.Join(",", item.Roles)</td>@* cause User Roles is IEnumerable<string> So if we don't use joit it will display only the name space *@
+                    <td><partial name="_ButtonsPartialView" model="@item.Id" /></td>
+             </tr>   
+        }          
+        </tbody>
+    </table>
+    </form>
+}
+else
+{
+    <div>
+        <h1>There is No Users </h1>
+    </div>
+    
+}

@@ -1,0 +1,57 @@
+﻿@model EmployeeViewModel
+@inject IDepartmentRepository departmentRepo //to can catch objects from the class which implement IDepartmentRepository .
+@{
+    var departments = new SelectList(await departmentRepo.GetAllAsync(), "ID", "Name");//casting from dynamic to SelectList
+   
+}
+<div class="form-group">
+    <label asp-for="Name" class="form-label">Name</label>
+    <input class="form-control" asp-for="Name">
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Age" class="form-label">Age</label>
+    <input class="form-control" asp-for="Age">
+    <span asp-validation-for="Age" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Salary" class="form-label">Salary</label>
+    <input class="form-control" asp-for="Salary">
+    <span asp-validation-for="Salary" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="HireDate" class="form-label">Hire Date</label>
+    <input class="form-control" asp-for="HireDate">
+    <span asp-validation-for="HireDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Image" class="form-label"></label>
+    <input class="form-control" asp-for="Image">  
+</div>
+<div class="form-group">
+    <label asp-for="Address" class="form-label">Address</label>
+    <input class="form-control" asp-for="Address">
+    <span asp-validation-for="Address" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+    <input class="form-control" asp-for="PhoneNumber">
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Departments" class="form-label">Departments</label>
+    <select class="form-control" asp-items="@departments" asp-for="DepartmentId">
+    <option value="@null">-------------- Select Department ------------</option>
+    </select>
+    
+</div>
+<div class="form-group">
+    <label asp-for="Email" class="form-label">Email</label>
+    <input class="form-control" asp-for="Email">
+    <span asp-validation-for="Email" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="IsActive" class="form-label">Is Active</label>
+    <input type="checkbox" class="form-control" asp-for="IsActive">
+    <span asp-validation-for="IsActive" class="text-danger"></span>
+</div>

@@ -1,0 +1,16 @@
+﻿@model Department
+<div class="form-group">
+    <label asp-for="Name" class="form-label">Department Name</label>
+    <input class="form-control" asp-for="Name">
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Code" class="form-label">Department Code</label>
+    <input class="form-control" asp-for="Code">
+    <span asp-validation-for="Code" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CreateAt" class="form-label">Date Of Create</label>
+    <input class="form-control" asp-for="CreateAt">
+    <span asp-validation-for="CreateAt" class="text-danger"></span>
+</div>

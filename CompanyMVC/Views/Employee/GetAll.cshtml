@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EmployeeViewModel>
+@{
+    ViewData["Title"] = "Get All Employees";
+}
+
+@if (@TempData["Added"] is not null)
+{
+    <div id="AddedId" class="alert alert-success">
+        <h3>@TempData["Added"]</h3>
+</div>
+}
+@* <h1>All Employees</h1> *@
+
+
+<a class="btn btn-success" asp-action="AddEmployee" asp-controller="Employee"> Add New Employee</a>
+
+
+@if(Model.Count() > 0)
+{
+    <h1><center class="m-3"><strong>All Employees</strong></center></h1>
+   
+    <div class="m-2">
+        <form asp-action="GetAll" class="row offset-2 ">
+            <div class="col-8">
+                <input class="form-control" type="text" name="SearchEmployee" placeholder="Employee's Name"></input>
+            </div>
+
+            <div class="col-4">
+                <input type="submit" class="btn btn-info" value="Search" />
+            </div>
+        </form>
+    </div>
+    
+    <table class="table table-success table-striped table-hover mt-5" >
+        <thead>
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(x=>x.Name)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Email)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Image)</th>
+                <th>Edit</th>
+                <th>Details</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            
+                <tr>
+                   <th scope="row">@item.Name</th>
+                    <td>@item.Email</td>
+                    <td><img src="~/Files/Images/@item.ImageName" class="rounded" width="40" hight="40" alt="@item.ImageName"/></td>
+                    <partial name="_ButtonsPartialView" model="@item.Id.ToString()"/>          
+                </tr>     
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="mt-5 alert-warning alert">
+        <h1>Not Found Any Employee</h1>
+    </div>
+}
+
+
+
+
+

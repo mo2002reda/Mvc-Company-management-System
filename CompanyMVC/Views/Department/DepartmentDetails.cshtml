@@ -1,0 +1,25 @@
+﻿@using DAL.Models
+@model Department
+@{
+    ViewData["Title"] = "DepartmentDetails";
+}
+<body class="bg-8fd19e">
+
+<h1>Department @Model.Name Details</h1>
+
+    <div class="form-group">
+        <label asp-for="Name" class="form-label">Department Name</label>
+        <input readonly class="form-control" asp-for="Name">  
+    </div>
+    <div class="form-group">
+        <label asp-for="Code" class="form-label">Department Code</label>
+        <input readonly class="form-control" asp-for="Code">  
+    </div>
+     <div class="form-group">
+    <label asp-for="CreateAt" class="form-label" >Date Of Create</label>
+    <input readonly class="form-control" asp-for="CreateAt">
+    </div>
+    <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-success">Edit</a> |
+    <a asp-action="GetAllDepartments" class="btn btn-light">Back To List</a>
+
+</body>

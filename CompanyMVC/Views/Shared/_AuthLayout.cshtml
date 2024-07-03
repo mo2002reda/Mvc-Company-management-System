@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/login-form-20/css/style.css">  
+</head>
+<style>
+    body {
+        background-image: url('/BackGround/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+<body >
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						@RenderBody()
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+
+	
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("ValidationScripts", required: false)
+ 
+
+	</body>
+</html>
+
+

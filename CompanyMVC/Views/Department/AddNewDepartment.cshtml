@@ -1,0 +1,16 @@
+﻿@using DAL.Models
+@model Department
+@{
+    ViewData["Title"] = "AddNewDepartment";
+
+}
+
+<h1>Add New Department</h1>
+<form asp-action="AddNewDepartment" asp-controller="Department">
+    <partial name="PartialViews/CreateEditDepartmentPartialView" />
+    <input type="submit" class="btn btn-primary" value="Submit"> |
+    <a asp-action="GetAllDepartments" class="btn btn-light">Back To List</a>
+</form>
+@section ValidationScripts {
+    <partial name="_ValidationScriptsPartial" />
+}

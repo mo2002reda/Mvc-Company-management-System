@@ -1,0 +1,18 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Edit";
+    
+}
+
+<h1>Edit @Model.Name's data</h1>
+    @* used to show all Excptions   *@
+</div>
+<form asp-action="Edit" asp-controller="Employee" enctype="multipart/form-data">
+
+    <partial name="PartialViews/CreateEditEmployeePartialView" />
+    <input type="submit" class="btn btn-primary" value="Save"> |
+    <a asp-action="GetAll" class="btn btn-light">Cancle</a>
+</form>
+@section ValidationScripts {
+    <partial name="_ValidationScriptsPartial" />
+}

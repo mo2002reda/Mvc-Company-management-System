@@ -1,0 +1,18 @@
+﻿@using DAL.Models
+@model Department
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Model.Name Department</h1>
+<div asp-validation-summary="All">@* used to show all Excptions   *@ 
+
+</div>
+<form asp-action="Edit" asp-controller="Department">
+    <partial name="PartialViews/CreateEditDepartmentPartialView" model="@Model" />
+    <input type="submit" class="btn btn-primary" value="Save"> |
+    <a asp-action="GetAllDepartments" class="btn btn-light">Back To List</a>
+</form>
+@section ValidationScripts {
+   <partial name="_ValidationScriptsPartial" />
+}

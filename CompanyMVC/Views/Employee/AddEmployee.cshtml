@@ -1,0 +1,15 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "AddEmployee";
+
+}
+<h1>Add New Employee</h1>
+<form asp-action="AddEmployee" asp-controller="Employee" enctype="multipart/form-data">
+   @*  to can upload images in the form not only texts we do enctype=>multipart/form-data *@
+    <partial name="PartialViews/CreateEditEmployeePartialView" />
+    <input type="submit" class="btn btn-primary" value="Add"> |
+    <a asp-action="GetAll" class="btn btn-light">Cancle</a>
+</form>
+@section validations{
+    <partial name="_ValidationScriptsPartial" />
+}
